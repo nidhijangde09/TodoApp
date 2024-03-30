@@ -6,8 +6,8 @@ import TaskCard from "../../Components/TaskCard/TaskCard.js";
 
 
 function Home() {
-    const [tasks, setTasks] = useState([])
-    const [newTask, setNewTask] = useState('')
+    const [tasks, setTasks] = useState([]);
+    const [newTask, setNewTask] = useState('');
     const [error, setError] = useState('');
 
 
@@ -34,12 +34,11 @@ function Home() {
     }
 
     const addTask = () => {
-
         const validationResult = validateNewTask();
         if (validationResult) return;
 
 
-        const newTasks = [newTasks, ...tasks]
+        const newTasks = [newTask, ...tasks]
         saveTasksToLS(newTasks);
 
         setTasks(newTasks)
@@ -72,7 +71,7 @@ function Home() {
 
             <div className='tasks-container'>
                 {
-                    tasks.map((task, i,) => {
+                    tasks.map((task, i) => {
                         return <TaskCard
                             task={task}
                             key={i} delFunction={deleteTask} />
